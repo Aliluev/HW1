@@ -11,5 +11,8 @@ public class Main {
         System.out.println(rectangle.getArea());
         System.out.println(rectangle.getPerimetr());
 
+        Employee employee=new Employee(10,"Petrov", "Pavel", 20000);
+        System.out.println(employee);
+
     }
 }
