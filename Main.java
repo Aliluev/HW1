@@ -6,5 +6,10 @@ public class Main {
         System.out.println(example1.toString());
         System.out.println(example1.getArea());
 
+        Rectangle rectangle=new Rectangle(2,3);
+        System.out.println(rectangle.toString());
+        System.out.println(rectangle.getArea());
+        System.out.println(rectangle.getPerimetr());
+
     }
 }
