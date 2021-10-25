@@ -14,5 +14,8 @@ public class Main {
         Employee employee=new Employee(10,"Petrov", "Pavel", 20000);
         System.out.println(employee);
 
+        MyPoint myPoint=new MyPoint(2,2);
+        MyPoint secondMypoint=new MyPoint(5,3);
+        System.out.println(myPoint.distance(secondMypoint));
     }
 }
