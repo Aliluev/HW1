@@ -2,6 +2,7 @@ package com.mycompany;
 
 import com.mycompany.book.Author;
 import com.mycompany.book.Book;
+import com.mycompany.complex.MyComplex;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -33,5 +34,15 @@ public class Main {
 
         MyTriangle myTriangle=new MyTriangle(1,1,2,3,7,2);
         System.out.println(myTriangle.getType());
+
+        MyComplex myComplex1=new MyComplex(2,3);
+        MyComplex myComplex2=new MyComplex(3,2);
+        MyComplex myComplex3=myComplex1.add(myComplex2);
+        System.out.println(myComplex1.getReal());
+        System.out.println(myComplex1.getImag());
+        System.out.println(myComplex3.getImag());
+        System.out.println(myComplex3.getImag());
+
+
     }
 }

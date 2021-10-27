@@ -76,9 +76,43 @@ public class MyComplex {
     }
     //Меняется ли состояние this объекта???
     public MyComplex add(MyComplex right){
+        this.real+=right.getReal();
+        this.imag+=right.getImag();
+        return this;
+    }
+    public MyComplex addNew(MyComplex right){
         MyComplex myComplex=new MyComplex();
         myComplex.setReal(this.real+right.getReal());
         myComplex.setImag(this.imag+right.getImag());
         return myComplex;
     }
+    public MyComplex subtract(MyComplex right){
+        this.real-=right.getReal();
+        this.imag-=right.getImag();
+        return this;
+    }
+    public MyComplex subtractNew(MyComplex right) {
+        MyComplex myComplex = new MyComplex();
+        myComplex.setReal(this.real - right.getReal());
+        myComplex.setImag(this.imag - right.getImag());
+        return myComplex;
+    }
+
+    public MyComplex multiply(MyComplex right){
+        this.real=(this.real*right.getReal())-(this.imag*imag);
+        this.imag*=(this.real*imag)+(real*this.imag);
+        return this;
+    }
+
+    public MyComplex divide(MyComplex right){
+        this.real=((this.real*right.getReal())+(this.imag*imag))/this.magnitude();
+        this.imag*=((this.real*imag)-(real*this.imag))/this.magnitude();
+        return this;
+    }
+
+    public MyComplex conjugate(){
+        MyComplex myComplex=new MyComplex(this.real,this.imag*(-1));
+        return myComplex;
+    }
+
 }
