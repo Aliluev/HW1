@@ -6,19 +6,25 @@ public class Book {
     private String name;
     private Author[] author;
     private double price;
-    private int qtu=0;
+    private int qty=0;
 
-    public Book(String name, Author[] author, double price) {
+    public Book(String name, Author[] author, double price)throws Exception {
         this.name = name;
         this.author = author;
+        if(price<0){
+            throw new Exception("price<0");
+        }
         this.price = price;
     }
 
-    public Book(String name, Author[] author, double price, int qtu) {
+    public Book(String name, Author[] author, double price, int qty)throws Exception {
         this.name = name;
         this.author = author;
         this.price = price;
-        this.qtu = qtu;
+        if(qty<0){
+            throw new Exception("qty<0");
+        }
+        this.qty = qty;
     }
 
     public String getName() {
@@ -37,12 +43,12 @@ public class Book {
         this.price = price;
     }
 
-    public int getQtu() {
-        return qtu;
+    public int getQty() {
+        return qty;
     }
 
-    public void setQtu(int qtu) {
-        this.qtu = qtu;
+    public void setQtu(int qty) {
+        this.qty = qty;
     }
 
     @Override
@@ -53,7 +59,7 @@ public class Book {
         for(int i=0;i<author.length;i++){
             stringAuthors+="{Autor[name="+ author[i].getName()+" ,email="+author[i].getEmail()+" ,gender="+author[i].getGender()+"]"+"}";
         }
-        return (stringBook+stringAuthors+" ,price="+price+" ,qty="+qtu);
+        return (stringBook+stringAuthors+" ,price="+price+" ,qty="+qty);
     }
 
     public String getAuthorNames(){

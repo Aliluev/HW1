@@ -6,10 +6,13 @@ public class Employee {
     private String lastName;
     private int salary;
 
-    public Employee(int id, String firstName, String lastName, int salary){
+    public Employee(int id, String firstName, String lastName, int salary)throws Exception{
         this.id=id;
         this.firstName=firstName;
         this.lastName=lastName;
+        if(salary<0){
+            throw new Exception("salary<0!!!");
+        }
         this.salary=salary;
     }
 

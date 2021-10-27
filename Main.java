@@ -1,7 +1,20 @@
 package com.mycompany;
 
+import com.mycompany.book.Author;
+import com.mycompany.book.Book;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        Author authorNikita=new Author("Nikita","123@email.ru",'m');
+        Author authorIvan=new Author("Ivan","456@email.ru",'m');
+        Author authorLiza=new Author("Liza","777@email.ru",'w');
+        Author[] authors={authorNikita,authorIvan,authorLiza};
+
+
+        Book book=new Book("fairy tale",authors,200,2);
+        System.out.println(book.toString());
+
         Circle example1=new Circle(2,"yellow");
         System.out.println(example1.toString());
         System.out.println(example1.getArea());
@@ -17,5 +30,8 @@ public class Main {
         MyPoint myPoint=new MyPoint(2,2);
         MyPoint secondMypoint=new MyPoint(5,3);
         System.out.println(myPoint.distance(secondMypoint));
+
+        MyTriangle myTriangle=new MyTriangle(1,1,2,3,7,2);
+        System.out.println(myTriangle.getType());
     }
 }

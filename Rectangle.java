@@ -6,7 +6,10 @@ public class Rectangle {
     public Rectangle(){
 
     }
-    public Rectangle(float length,float width){
+    public Rectangle(float length,float width)throws Exception{
+        if((length<=0)|(width<=0)){
+            throw new Exception("(length<=0)|(width<=0)");
+        }
         this.length=length;
         this.width=width;
     }
@@ -15,7 +18,10 @@ public class Rectangle {
         return length;
     }
 
-    public void setLength(float length) {
+    public void setLength(float length)throws Exception {
+        if(length<=0){
+            throw new Exception("length<=0");
+        }
         this.length = length;
     }
 
@@ -23,7 +29,10 @@ public class Rectangle {
         return width;
     }
 
-    public void setWidth(float width) {
+    public void setWidth(float width)throws Exception {
+        if(width<=0){
+            throw new Exception("width<=0");
+        }
         this.width = width;
     }
     public double getArea(){

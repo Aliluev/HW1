@@ -5,10 +5,16 @@ public class Circle {
     private String color="red";
     public Circle(){
     }
-    public Circle(double radius){
+    public Circle(double radius)throws Exception{
+        if(radius<=0){
+            throw new Exception("radius<=0!!!");
+        }
         this.radius=radius;
     }
-    public Circle(double radius, String color){
+    public Circle(double radius, String color) throws Exception {
+        if(radius<=0){
+            throw new Exception("radius<=0!!!");
+        }
         this.radius=radius;
         this.color=color;
     }
@@ -21,7 +27,10 @@ public class Circle {
         return color;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(double radius)throws Exception {
+        if(radius<=0){
+            throw new Exception("radius<=0!!!");
+        }
         this.radius = radius;
     }
 
