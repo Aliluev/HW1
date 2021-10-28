@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.geometric_shapes;
 
 public class MyTriangle {
     MyPoint v1=new MyPoint();

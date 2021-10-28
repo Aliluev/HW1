@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.geometric_shapes;
 
 public class MyPoint {
     private int x=0;

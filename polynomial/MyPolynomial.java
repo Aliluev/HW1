@@ -1,6 +1,4 @@
-package com.mycompany;
-
-import java.util.Arrays;
+package com.mycompany.polynomial;
 
 public class MyPolynomial {
     private double[] coeffs;
@@ -30,6 +28,13 @@ public class MyPolynomial {
       }
       str+=coeffs[0];
       return str;
+    }
+    public double evaluate(double x){
+        double summa=0.0;
+        for(int i=1;i<coeffs.length;i++){
+            summa+=(Math.pow(x,i))*coeffs[i];
+        }summa+=coeffs[0];
+        return summa;
     }
 
     public MyPolynomial add(MyPolynomial right){

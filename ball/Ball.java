@@ -7,12 +7,20 @@ public class Ball {
     private float xDelta;
     private float yDelta;
 
-    public Ball(float x,float y,int radius,int speed,int direction){
+    public Ball(float x,float y,int radius,int speed,int direction)throws Exception{
         this.x=x;
         this.y=y;
+        if(radius<0){
+            throw new Exception("radius<0!!!");
+        }
+        if(direction>180|direction<-180){
+            throw new Exception("Неверные данные direction");
+        }
         this.radius=radius;
-        xDelta=(float)(speed*Math.cos(direction));
-        yDelta=(float)(-speed*Math.sin(direction));
+        xDelta=(float)(speed*Math.cos(Math.toRadians(direction)));//переводим direction в радианы и вычисляю дельта
+        yDelta=(float)(-speed*Math.sin(Math.toRadians(direction)));
+      //  System.out.println(Math.sin(Math.PI/6));
+     //   System.out.println("yDelta="+yDelta);
     }
 
     public float getX() {
@@ -67,4 +75,8 @@ public class Ball {
         yDelta*=-1.0f;
     }
 
+    @Override
+    public String toString() {
+        return "Ball[("+x+","+y+"), radius="+radius+", speed=("+xDelta+","+yDelta+")]";
+    }
 }

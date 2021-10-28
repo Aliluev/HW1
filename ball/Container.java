@@ -12,7 +12,7 @@ public class Container {
         this.x1=x;
         this.y1=y;
         this.x2=x+width;
-        this.x2=y+height;
+        this.y2=y+height;
     }
 
     public int getX1() {
@@ -31,7 +31,7 @@ public class Container {
     }
 
     public boolean collides(Ball ball){
-        if((ball.getX()-ball.getRadius()>=x1)&&(ball.getX()+ball.getRadius()<=x2)&&(ball.getY()-ball.getRadius()>=y1)&&(ball.getY()+ball.getRadius()<=y1)){
+        if((ball.getX()-ball.getRadius()>=x1)&&(ball.getX()+ball.getRadius()<=x2)&&(ball.getY()-ball.getRadius()>=y1)&&(ball.getY()+ball.getRadius()<=y2)){
             return true;
         }else return false;
     }
