@@ -43,6 +43,29 @@ public class Main {
         System.out.println(myComplex3.getImag());
         System.out.println(myComplex3.getImag());
 
+        System.out.println("---------------------");
 
+         double[] array={1,2,3,4,5,6};
+         double[] array2={2,3,4,5,6};
+
+        MyPolynomial myPolynomial=new MyPolynomial(array);
+        MyPolynomial myPolynomial2=new MyPolynomial(array2);
+
+        MyPolynomial myPolynomial13=myPolynomial.add(myPolynomial2);
+
+        for (int i=0;i<myPolynomial13.getCoeffs().length;i++){
+            System.out.println(myPolynomial13.getCoeffs()[i]);
+        }
+        System.out.println("ToString Вывод Полинома");
+        System.out.println(myPolynomial13.toString());
+
+        double[] array3={1,2};
+        double[] array4={1,2,1};
+
+        MyPolynomial myPolynomial3=new MyPolynomial(array3);
+        MyPolynomial myPolynomial4=new MyPolynomial(array4);
+
+        MyPolynomial myPolynomial5=myPolynomial3.multiply(myPolynomial4);
+        System.out.println(myPolynomial5.toString());
     }
 }

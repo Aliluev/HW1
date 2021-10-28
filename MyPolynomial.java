@@ -26,7 +26,7 @@ public class MyPolynomial {
         String str=new String();
       for(int i=coeffs.length-1;i>0;i--){
           //lovo.append(coeffs[i]+)
-          str+=coeffs[i]+"x^"+(coeffs.length-1);
+          str+=coeffs[i]+"x^"+(i)+"+";
       }
       str+=coeffs[0];
       return str;
@@ -35,16 +35,34 @@ public class MyPolynomial {
     public MyPolynomial add(MyPolynomial right){
         double[] array;
         if(right.getCoeffs().length>=this.coeffs.length) {
-            array=new double[right.getCoeffs().length];
+          //  array=new double[right.getCoeffs().length];
+            array=right.getCoeffs();
+            for(int i=0;i<this.coeffs.length;i++){
+                array[i]+=this.coeffs[i];
+            }
+            MyPolynomial myPolynomial=new MyPolynomial(array);
+            return myPolynomial;
         }else {
-            array = new double[this.coeffs.length];
+            array = this.coeffs;
+            for (int i = 0; i < right.getCoeffs().length; i++) {
+                array[i] += right.getCoeffs()[i];
+            }
+            MyPolynomial myPolynomial=new MyPolynomial(array);
+            return myPolynomial;
         }
-        for(int i=0;i<right.getCoeffs().length;i++){
-            array[i]=this.coeffs[i]+right.getCoeffs()[i];
-        }
-        MyPolynomial myPolynomial=new MyPolynomial(array);
-        return myPolynomial;
     }
 
 
+    public MyPolynomial multiply(MyPolynomial right){
+        double[] massiv=new double[this.coeffs.length+right.getCoeffs().length-1]; //новый массив большей размерности
+        System.out.println(this.toString());
+        System.out.println(right.toString());
+        for(int i=0;i<this.coeffs.length;i++){
+            for(int l=0;l<right.getCoeffs().length;l++){
+                massiv[i+l]=massiv[i+l]+((this.coeffs[i])*(right.getCoeffs()[l]));
+            }
+        }
+        MyPolynomial myPolynomial=new MyPolynomial(massiv);
+        return myPolynomial;
+    }
 }
