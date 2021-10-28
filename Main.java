@@ -70,6 +70,16 @@ public class Main {
         MyComplex myComplex3=new MyComplex(3,2);
         System.out.println("toString3="+myComplex3.toString());
         System.out.println("equals_myComplex3_myComplex2="+myComplex3.equals(myComplex2));
+        MyComplex myComplex4=new MyComplex(1,1);
+        MyComplex myComplex5=new MyComplex(2,2);
+        System.out.println("myComplex4="+myComplex4.toString());
+        System.out.println("myComplex5="+myComplex5.toString());
+        System.out.println("multiply="+myComplex4.multiply(myComplex5).toString());
+        myComplex4=new MyComplex(1,1);
+        myComplex5=new MyComplex(2,2);
+        System.out.println("divide="+myComplex4.divide(myComplex5).toString());
+        myComplex5=new MyComplex(2,2);
+        System.out.println("conjugateMyComplex5="+myComplex5.conjugate().toString());
 //---------------------------MyPolynomial-------------------------------------------
         System.out.println("---MyPolynomial---");
          double[] array={1,2,3,4,5,6};

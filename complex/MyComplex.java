@@ -36,7 +36,9 @@ public class MyComplex {
 
     @Override
     public String toString() {
-        return ("("+real+" "+imag+"i)");
+        if(imag>=0) {
+            return ("(" + real + "+" + imag + "i)");
+        }else return ("(" + real + imag + "i)");
     }
 
     public boolean isReal(){
@@ -60,7 +62,6 @@ public class MyComplex {
     }
 
 
-    //ПРОВЕРИТЬ!!!!
     public boolean equals(MyComplex another){
         return (another.equals(this.real,this.imag));
     }
@@ -70,11 +71,10 @@ public class MyComplex {
         return (Math.sqrt(Math.pow(real,2)+Math.pow(imag,2)));
     }
 
-    //ПОСМОТРЕТЬ УГОЛ!!!!
     public double argument(){
        return (Math.atan(imag/real));
     }
-    //Меняется ли состояние this объекта???
+
     public MyComplex add(MyComplex right){
         this.real+=right.getReal();
         this.imag+=right.getImag();
@@ -99,14 +99,18 @@ public class MyComplex {
     }
 
     public MyComplex multiply(MyComplex right){
-        this.real=(this.real*right.getReal())-(this.imag*imag);
-        this.imag*=(this.real*imag)+(real*this.imag);
+        double real_copy=0;//для того чтобы не изменять в runtime real
+        real_copy=(this.real*right.getReal())-(this.imag*right.imag);
+        this.imag=((this.real*right.imag)+(right.real*this.imag));
+        this.real=real_copy;
         return this;
     }
 
     public MyComplex divide(MyComplex right){
-        this.real=((this.real*right.getReal())+(this.imag*imag))/this.magnitude();
-        this.imag*=((this.real*imag)-(real*this.imag))/this.magnitude();
+        double real_copy=0;//для того чтобы не изменять в runtime real
+        real_copy=((this.real*right.getReal())+(this.imag*right.imag))/(right.imag*right.imag+right.real+right.real);
+        this.imag=((this.imag*right.real)-(this.real*right.imag))/(right.imag*right.imag+right.real+right.real);
+        this.real=real_copy;
         return this;
     }
 
